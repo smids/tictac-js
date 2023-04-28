@@ -24,6 +24,7 @@ const backdropElement = document.getElementById('backdrop');
 const formPlayer = document.querySelector('form');
 const errorPlayer = document.getElementById('config-error');
 const activePlayerName = document.getElementById('active-player-name');
+const gameOverElement = document.getElementById('game-over');
 
 const editPlayer1Btn = document.getElementById('edit-player-1-btn');
 const editPlayer2Btn = document.getElementById('edit-player-2-btn');
