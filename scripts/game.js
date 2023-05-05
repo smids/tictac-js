@@ -3,6 +3,8 @@ function startNewGame(){
         alert('Please enter valid name');
         return;
     }
+
+    resetGame();
     gameAreaElement.style.display = 'block';
     activePlayerName.textContent = players[activePlayer].name;
 }
@@ -94,5 +96,23 @@ function endGame(winnerId){
         gameOverElement.firstElementChild.firstElementChild.textContent= winnerName;
     }else{
         gameOverElement.firstElementChild.textContent = 'It\'s a draw';
+    }
+}
+
+function resetGame(){
+    activePlayer = 0;
+    currentRound = 1;
+    gameOverElement.firstElementChild.innerHTML = '<h2>You Won, <span id="winner-name">PLAYER NAME</span></h2>';
+    gameOverElement.style.display = 'none';
+
+    let gameBoardIndex = 0;
+    for(let i=0;i<3;i++){
+        for(let j=0;j<3;j++){
+            gameData[i][j]=0;
+            const gameBoardItemElement = gameBoardElement.children[gameBoardIndex];
+            gameBoardItemElement.textContent='';
+            gameBoardItemElement.classList.remove('disabled');
+            gameBoardIndex++;
+        }
     }
 }
